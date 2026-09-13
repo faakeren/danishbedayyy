@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Danish 🕷️</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  background:#030305;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  overflow:hidden;
+}
+
+.page{
+  position:absolute;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+  overflow:hidden;
+}
+
+.page.active{
+  display:flex;
+  animation:appear .6s ease;
+}
+
+@keyframes appear{
+  from{opacity:0;transform:scale(1.05)}
+  to{opacity:1;transform:scale(1)}
+}
+
+.bg{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%,#b3152b 0 1px,transparent 2px),
+    radial-gradient(circle at 80% 70%,#315a9e 0 1px,transparent 2px),
+    linear-gradient(145deg,#050508,#12060a,#050814);
+  background-size:55px 55px,80px 80px,100% 100%;
+}
+
+.web{
+  position:absolute;
+  width:650px;
+  height:650px;
+  border:2px solid rgba(255,255,255,.12);
+  border-radius:50%;
+  box-shadow:
+    0 0 0 55px transparent,
+    0 0 0 57px rgba(255,255,255,.08),
+    0 0 0 110px transparent,
+    0 0 0 112px rgba(255,255,255,.08),
+    0 0 0 165px transparent,
+    0 0 0 167px rgba(255,255,255,.08);
+}
+
+.content{
+  width:100%;
+  max-width:430px;
+  position:relative;
+  z-index:5;
+}
+
+button{
+  border:0;
+  background:#e3162b;
+  color:white;
+  padding:14px 24px;
+  margin-top:20px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:active{
+  transform:scale(.93);
+}
+
+.red{
+  color:#ed1c32;
+}
+
+.gray{
+  color:#aaa;
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* NOTIFICATION */
+
+.phone{
+  background:#111118;
+  border:3px solid #555;
+  border-radius:30px;
+  padding:22px;
+  width:310px;
+  margin:auto;
+  box-shadow:0 0 40px rgba(220,20,50,.3);
+}
+
+.status{
+  font-size:11px;
+  color:#777;
+  margin-bottom:25px;
+}
+
+.notification{
+  background:#25252d;
+  border-radius:15px;
+  padding:18px;
+  text-align:left;
+  animation:notify 1s ease;
+}
+
+@keyframes notify{
+  from{transform:translateY(-30px);opacity:0}
+  to{transform:none;opacity:1}
+}
+
+.notification b{
+  display:block;
+  margin-bottom:6px;
+}
+
+.notification span{
+  color:#bbb;
+  font-size:13px;
+}
+
+/* TITLE */
+
+.big-spider{
+  font-size:95px;
+  animation:float 2s infinite;
+}
+
+@keyframes float{
+  50%{transform:translateY(-12px)}
+}
+
+.title{
+  font-size:47px;
+  font-weight:900;
+  margin:12px 0;
+}
+
+/* PASSWORD */
+
+.panel{
+  background:#101015;
+  border:3px solid #e31a31;
+  border-radius:15px;
+  padding:25px;
+}
+
+.panel h2{
+  font-size:32px;
+}
+
+.display{
+  height:55px;
+  margin:20px 0;
+  background:#050505;
+  border:2px solid #444;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  letter-spacing:8px;
+  font-size:25px;
+  color:#ed1c32;
+}
+
+.keys{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.key{
+  margin:0;
+  background:#222228;
+  padding:16px;
+}
+
+.key:hover{
+  background:#e3162b;
+}
+
+/* PUZZLE */
+
+.puzzle{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin:25px auto;
+  max-width:300px;
+}
+
+.piece{
+  aspect-ratio:1;
+  background:#191920;
+  border:2px solid #555;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  cursor:pointer;
+  border-radius:8px;
+}
+
+.piece.selected{
+  background:#e3162b;
+  border-color:white;
+}
+
+.success{
+  color:#54ff9b;
+  margin-top:15px;
+}
+
+/* BOX */
+
+.boxes{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin:35px 0;
+}
+
+.box-choice{
+  width:95px;
+  height:105px;
+  background:#e21b30;
+  border:3px solid white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:45px;
+  cursor:pointer;
+  border-radius:8px;
+}
+
+.box-choice:hover{
+  transform:translateY(-8px);
+}
+
+.box-result{
+  min-height:50px;
+  color:#ffd34d;
+}
+
+/* CAKE */
+
+.cake{
+  font-size:110px;
+  margin:30px;
+  cursor:pointer;
+}
+
+.wish{
+  display:none;
+  color:#ffd43b;
+}
+
+.wish.show{
+  display:block;
+}
+
+/* LETTER */
+
+.letter{
+  background:#eee2cc;
+  color:#222;
+  padding:25px;
+  border-radius:8px;
+  text-align:left;
+  margin-top:20px;
+  max-height:55vh;
+  overflow:auto;
+  transform:rotate(-1deg);
+  box-shadow:8px 8px #e21b30;
+}
+
+.letter h2{
+  color:#c9192e;
+  margin-bottom:15px;
+}
+
+.letter p{
+  font-size:14px;
+  line-height:1.8;
+}
+
+/* FLOWERS */
+
+.flower-area{
+  margin:25px 0;
+  font-size:58px;
+  line-height:1.5;
+}
+
+.flower{
+  display:inline-block;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.flower:active{
+  transform:scale(1.4) rotate(10deg);
+}
+
+.flower-message{
+  min-height:50px;
+  color:#ffcad1;
+}
+
+/* GAME */
+
+.game{
+  height:380px;
+  border:3px solid white;
+  background:
+    linear-gradient(#071020,#020207);
+  border-radius:15px;
+  position:relative;
+  overflow:hidden;
+  margin-top:20px;
+}
+
+.game-star{
+  position:absolute;
+  font-size:30px;
+  cursor:pointer;
+  animation:fall 3s linear;
+}
+
+@keyframes fall{
+  from{top:-40px}
+  to{top:400px}
+}
+
+.score{
+  margin-top:10px;
+  font-weight:bold;
+  color:#ffd83d;
+}
+
+/* STORY */
+
+.story{
+  background:white;
+  color:#111;
+  border:5px solid #111;
+  padding:28px;
+  min-height:230px;
+  box-shadow:9px 9px #e3162b;
+}
+
+.story h2{
+  color:#d71930;
+  margin-bottom:18px;
+}
+
+.story p{
+  line-height:1.7;
+}
+
+/* MUSIC */
+
+.record{
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  margin:25px auto;
+  background:
+    repeating-radial-gradient(
+      circle,
+      #080808 0 4px,
+      #282828 5px 6px
+    );
+  border:8px solid #222;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.record.playing{
+  animation:spin 3s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+.record-center{
+  width:65px;
+  height:65px;
+  background:#e3162b;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+}
+
+/* SECRET */
+
+.secret{
+  border:3px dashed #ed1c32;
+  padding:30px 20px;
+  background:#0d0d13;
+}
+
+.secret-lock{
+  font-size:70px;
+  cursor:pointer;
+}
+
+.hidden-message{
+  display:none;
+  margin-top:20px;
+  line-height:1.8;
+  color:#ffd7dc;
+}
+
+.hidden-message.show{
+  display:block;
+}
+
+/* FINAL */
+
+.final-heart{
+  font-size:75px;
+  animation:heartbeat 1s infinite;
+}
+
+@keyframes heartbeat{
+  50%{transform:scale(1.2)}
+}
+
+.final h1{
+  font-size:57px;
+  color:#ed1c32;
+}
+
+.final h2{
+  font-size:35px;
+  margin:10px 0 20px;
+}
+
+.confetti{
+  position:absolute;
+  top:-30px;
+  font-size:20px;
+  animation:confetti 4s linear infinite;
+  z-index:1;
+}
+
+@keyframes confetti{
+  to{
+    transform:translateY(110vh) rotate(720deg);
+  }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- 1 NOTIFICATION -->
+
+<section class="page active" id="p1">
+
+<div class="bg"></div>
+<div class="web"></div>
+
+<div class="content">
+
+<div class="phone">
+
+<div class="status">
+9:11 PM
+</div>
+
+<div class="notification">
+
+<b>🕷️ SECRET MESSAGE</b>
+
+<span>
+You have one birthday surprise waiting.
+</span>
+
+</div>
+
+<button onclick="next()">
+OPEN MESSAGE
+</button>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- 2 INTRO -->
+
+<section class="page" id="p2">
+
+<div class="bg"></div>
+<div class="web"></div>
+
+<div class="content">
+
+<div class="big-spider">🕷️</div>
+
+<div class="title">
+HEY <span class="red">DANISH</span>
+</div>
+
+<p class="gray">
+A special birthday mission has been created for you.
+</p>
+
+<button onclick="next()">
+ACCEPT MISSION →
+</button>
+
+</div>
+</section>
+
+
+<!-- 3 PASSWORD -->
+
+<section class="page" id="p3">
+
+<div class="content">
+
+<div class="panel">
+
+<h2>SECRET ACCESS</h2>
+
+<p class="gray">
+Enter the special date.
+</p>
+
+<div class="display" id="display"></div>
+
+<div class="keys">
+
+<button class="key" onclick="num(1)">1</button>
+<button class="key" onclick="num(2)">2</button>
+<button class="key" onclick="num(3)">3</button>
+
+<button class="key" onclick="num(4)">4</button>
+<button class="key" onclick="num(5)">5</button>
+<button class="key" onclick="num(6)">6</button>
+
+<button class="key" onclick="num(7)">7</button>
+<button class="key" onclick="num(8)">8</button>
+<button class="key" onclick="num(9)">9</button>
+
+<button class="key" onclick="clearPass()">⌫</button>
+<button class="key" onclick="num(0)">0</button>
+<button class="key" onclick="check()">✓</button>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- 4 PUZZLE -->
+
+<section class="page" id="p4">
+
+<div class="content">
+
+<h1>MINI PUZZLE 🧩</h1>
+
+<p class="gray">
+Tap the spider icons until all four are activated.
+</p>
+
+<div class="puzzle">
+
+<div class="piece" onclick="piece(this)">🕷️</div>
+<div class="piece" onclick="piece(this)">🕸️</div>
+<div class="piece" onclick="piece(this)">🕷️</div>
+
+<div class="piece" onclick="piece(this)">⭐</div>
+<div class="piece" onclick="piece(this)">🕷️</div>
+<div class="piece" onclick="piece(this)">❤️</div>
+
+<div class="piece" onclick="piece(this)">🕷️</div>
+<div class="piece" onclick="piece(this)">🕸️</div>
+<div class="piece" onclick="piece(this)">⭐</div>
+
+</div>
+
+<div id="puzzleText" class="success"></div>
+
+</div>
+</section>
+
+
+<!-- 5 MYSTERY BOX -->
+
+<section class="page" id="p5">
+
+<div class="content">
+
+<h1>MYSTERY BOXES 📦</h1>
+
+<p class="gray">
+Only one contains the next surprise.
+</p>
+
+<div class="boxes">
+
+<div class="box-choice" onclick="box(1)">?</div>
+<div class="box-choice" onclick="box(2)">?</div>
+<div class="box-choice" onclick="box(3)">?</div>
+
+</div>
+
+<div class="box-result" id="boxResult"></div>
+
+</div>
+</section>
+
+
+<!-- 6 CAKE -->
+
+<section class="page" id="p6">
+
+<div class="content">
+
+<h1>MAKE A WISH 🎂</h1>
+
+<p class="gray">
+Tap the cake to blow out the candle.
+</p>
+
+<div class="cake" onclick="cake()">
+🎂
+</div>
+
+<div id="wish" class="wish">
+
+✨ WISH GRANTED ✨
+
+<br>
+
+<button onclick="next()">
+OPEN YOUR LETTER →
+</button>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- 7 LETTER -->
+
+<section class="page" id="p7">
+
+<div class="content">
+
+<h1>ONE MESSAGE 💌</h1>
+
+<div class="letter">
+
+<h2>Happy Birthday, Danish 🤍</h2>
+
+<p>
+happy birthdayyy 🥳🤍 hope you have a really good day today . semoga panjang umur , murah rezeki and everything goes well for you . i hope you get all the happiness you deserve , and semoga tahun ni jadi tahun yang lebih baik for you . enjoy your dayy! 🎂💗
+</p>
+
+</div>
+
+<button onclick="next()">
+NEXT PAGE →
+</button>
+
+</div>
+</section>
+
+
+<!-- 8 FLOWERS -->
+
+<section class="page" id="p8">
+
+<div class="content">
+
+<h1>DIGITAL BOUQUET 💐</h1>
+
+<p class="gray">
+Every flower has a little message.
+</p>
+
+<div class="flower-area">
+
+<span class="flower" onclick="flower(1)">🌷</span>
+<span class="flower" onclick="flower(2)">🌻</span>
+<span class="flower" onclick="flower(3)">🌹</span>
+<span class="flower" onclick="flower(4)">🌸</span>
+<span class="flower" onclick="flower(5)">🌼</span>
+
+</div>
+
+<div class="flower-message" id="flowerMessage">
+Tap one.
+</div>
+
+<button onclick="next()">
+NEXT →
+</button>
+
+</div>
+</section>
+
+
+<!-- 9 GAME -->
+
+<section class="page" id="p9">
+
+<div class="content">
+
+<h1>CATCH THE HEARTS ❤️</h1>
+
+<p class="gray">
+Catch 5 hearts before they disappear.
+</p>
+
+<div class="game" id="game"></div>
+
+<div class="score">
+Score: <span id="score">0</span> / 5
+</div>
+
+<button onclick="startGame()">
+START GAME
+</button>
+
+</div>
+</section>
+
+
+<!-- 10 STORY -->
+
+<section class="page" id="p10">
+
+<div class="content">
+
+<h1>SPIDER-VERSE FILES</h1>
+
+<div class="story">
+
+<h2 id="storyTitle">
+PAGE 01
+</h2>
+
+<p id="storyText">
+Some people just randomly become part of your story, and somehow the little moments end up meaning a lot.
+</p>
+
+</div>
+
+<button onclick="story()">
+TURN PAGE →
+</button>
+
+</div>
+</section>
+
+
+<!-- 11 MUSIC -->
+
+<section class="page" id="p11">
+
+<div class="content">
+
+<h1>YOUR SOUNDTRACK 🎧</h1>
+
+<div class="record" id="record">
+
+<div class="record-center">
+🕷️
+</div>
+
+</div>
+
+<p class="gray">
+One song for this little birthday mission.
+</p>
+
+<button onclick="music()" id="musicBtn">
+▶ PLAY MUSIC
+</button>
+
+<button onclick="next()">
+NEXT →
+</button>
+
+<audio id="song" src="spiderman_song.mp3"></audio>
+
+</div>
+</section>
+
+
+<!-- 12 SECRET -->
+
+<section class="page" id="p12">
+
+<div class="content">
+
+<h1>ONE LAST SECRET 🔐</h1>
+
+<div class="secret">
+
+<div class="secret-lock" onclick="secret()">
+🔒
+</div>
+
+<p class="gray">
+Something is hidden here.
+</p>
+
+<div class="hidden-message" id="hidden">
+
+You made it all the way here. 🕷️
+
+<br><br>
+
+I hope this little surprise
+made your day a little happier. 🤍
+
+<br><br>
+
+Now there's only one page left...
+
+</div>
+
+</div>
+
+<button onclick="next()">
+FINAL PAGE →
+</button>
+
+</div>
+</section>
+
+
+<!-- 13 FINAL -->
+
+<section class="page" id="p13">
+
+<div class="bg"></div>
+<div class="web"></div>
+
+<div class="content final">
+
+<div id="confetti"></div>
+
+<div class="final-heart">
+❤️
+</div>
+
+<h1>HAPPY</h1>
+
+<h2>
+BIRTHDAY, DANISH 🕷️
+</h2>
+
+<p class="gray">
+May this new chapter bring you
+lots of happiness, good moments
+and reasons to smile.
+</p>
+
+<br>
+
+<p class="red">
+TO BE CONTINUED...
+</p>
+
+</div>
+</section>
+
+
+<script>
+
+let current = 1;
+
+
+/* PAGE */
+
+function next(){
+
+if(current < 13){
+
+document
+.getElementById("p"+current)
+.classList.remove("active");
+
+current++;
+
+document
+.getElementById("p"+current)
+.classList.add("active");
+
+}
+
+}
+
+
+/* PASSWORD */
+
+let pass = "";
+
+function num(n){
+
+if(pass.length >= 4) return;
+
+pass += n;
+
+document.getElementById("display").textContent =
+"•".repeat(pass.length);
+
+if(pass.length === 4){
+
+setTimeout(check,300);
+
+}
+
+}
+
+function clearPass(){
+
+pass = "";
+
+document.getElementById("display").textContent = "";
+
+}
+
+function check(){
+
+if(pass === "0511"){
+
+document.getElementById("display").textContent = "✓";
+
+setTimeout(next,500);
+
+}else{
+
+document.getElementById("display").textContent = "✕";
+
+setTimeout(clearPass,600);
+
+}
+
+}
+
+
+/* PUZZLE */
+
+let pieces = 0;
+
+function piece(el){
+
+if(el.classList.contains("selected")) return;
+
+el.classList.add("selected");
+
+pieces++;
+
+if(pieces >= 4){
+
+document.getElementById("puzzleText").textContent =
+"PUZZLE COMPLETE ✓";
+
+setTimeout(next,900);
+
+}
+
+}
+
+
+/* BOX */
+
+function box(number){
+
+let result =
+document.getElementById("boxResult");
+
+if(number === 2){
+
+result.innerHTML =
+"🎉 YOU FOUND THE RIGHT BOX!<br><br>";
+
+setTimeout(next,1000);
+
+}else{
+
+result.textContent =
+"❌ Nothing here... try another box.";
+
+}
+
+}
+
+
+/* CAKE */
+
+function cake(){
+
+document
+.getElementById("wish")
+.classList.add("show");
+
+}
+
+
+/* FLOWERS */
+
+function flower(n){
+
+let messages = [
+
+"🌷 A little flower for you.",
+
+"🌻 Hope today makes you smile.",
+
+"🌹 Sending good vibes your way.",
+
+"🌸 Another one because one isn't enough.",
+
+"🌼 One last flower for Danish 🤍"
+
+];
+
+document.getElementById("flowerMessage")
+.textContent = messages[n-1];
+
+}
+
+
+/* GAME */
+
+let score = 0;
+let gameTimer;
+
+function startGame(){
+
+score = 0;
+
+document.getElementById("score")
+.textContent = score;
+
+clearInterval(gameTimer);
+
+gameTimer = setInterval(createHeart,700);
+
+setTimeout(function(){
+
+clearInterval(gameTimer);
+
+if(score >= 5){
+
+next();
+
+}else{
+
+alert("Almost! Press START GAME and try again.");
+
+}
+
+},10000);
+
+}
+
+function createHeart(){
+
+let game =
+document.getElementById("game");
+
+let heart =
+document.createElement("div");
+
+heart.className = "game-star";
+
+heart.textContent = "❤️";
+
+heart.style.left =
+Math.random()*85 + "%";
+
+heart.style.top = "0px";
+
+heart.onclick = function(){
+
+score++;
+
+document.getElementById("score")
+.textContent = score;
+
+heart.remove();
+
+if(score >= 5){
+
+clearInterval(gameTimer);
+
+setTimeout(next,300);
+
+}
+
+};
+
+game.appendChild(heart);
+
+setTimeout(function(){
+
+if(heart.parentNode){
+
+heart.remove();
+
+}
+
+},3000);
+
+}
+
+
+/* STORY */
+
+let storyPage = 1;
+
+function story(){
+
+storyPage++;
+
+let titles = [
+"PAGE 01",
+"PAGE 02",
+"PAGE 03",
+"PAGE 04"
+];
+
+let texts = [
+
+"Some people just randomly become part of your story, and somehow the little moments end up meaning a lot.",
+
+"Not every memory needs a camera. Sometimes the smallest conversations are the ones you remember.",
+
+"Different days, different moments, same wish: I hope life treats you kindly.",
+
+"Here's to another chapter, another year and plenty of new things waiting ahead."
+
+];
+
+if(storyPage <= 4){
+
+document.getElementById("storyTitle")
+.textContent = titles[storyPage-1];
+
+document.getElementById("storyText")
+.textContent = texts[storyPage-1];
+
+}else{
+
+next();
+
+}
+
+}
+
+
+/* MUSIC */
+
+function music(){
+
+let song =
+document.getElementById("song");
+
+let record =
+document.getElementById("record");
+
+let btn =
+document.getElementById("musicBtn");
+
+if(song.paused){
+
+song.play();
+
+record.classList.add("playing");
+
+btn.textContent =
+"❚❚ PAUSE MUSIC";
+
+}else{
+
+song.pause();
+
+record.classList.remove("playing");
+
+btn.textContent =
+"▶ PLAY MUSIC";
+
+}
+
+}
+
+
+/* SECRET */
+
+function secret(){
+
+document
+.getElementById("hidden")
+.classList.add("show");
+
+}
+
+
+/* CONFETTI */
+
+function confetti(){
+
+let emojis = [
+"❤️","🕷️","✨","🎉","⭐","💗"
+];
+
+let area =
+document.getElementById("confetti");
+
+for(let i=0;i<40;i++){
+
+let item =
+document.createElement("div");
+
+item.className =
+"confetti";
+
+item.textContent =
+emojis[Math.floor(
+Math.random()*emojis.length
+)];
+
+item.style.left =
+Math.random()*100 + "%";
+
+item.style.animationDelay =
+Math.random()*3 + "s";
+
+area.appendChild(item);
+
+}
+
+}
+
+confetti();
+
+</script>
+
+</body>
+</html>
